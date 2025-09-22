@@ -17,7 +17,7 @@ public class Main {
 		int a,b;
 		a=sc.nextInt();
 		b=sc.nextInt();
-		int addition= t1.add(a,b);
+		int addition= t1.division(a,b);
 		System.out.println(addition);
 		long d=90;
 		long f=89;
@@ -26,6 +26,7 @@ public class Main {
 		String s2="World";
 		String addition_String=t1.add(s1, s2);
 		System.out.println(addition_String);
+		
 		
 	}
 

@@ -2,7 +2,6 @@ package polymorphism;
 
 public class CompileTime {
 	
-	
 	// Method overloading  
 	int division(int a, int b)
 	{
