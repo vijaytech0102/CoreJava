@@ -27,5 +27,7 @@ public class CompileTimePolymorphism {
 		String ans=obj.message("Compile", "Time Polymorphism");
 		System.out.println(ans);
 		System.out.println(str);
+		System.out.print(false);
+		
 	}
 }
