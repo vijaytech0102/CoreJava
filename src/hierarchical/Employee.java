@@ -40,7 +40,8 @@ class Employee {
 
 	// toString method
 	@Override
-	public String toString() {
+	public String toString()
+	{
 		return "Employee [ID=" + id + ", Name=" + name + ", Salary=" + salary + "]";
 	}
 }
