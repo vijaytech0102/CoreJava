@@ -11,7 +11,6 @@ public class Main {
 		int ans=t1.division(10, 5);
 		System.out.println(result);
 		System.out.println(ans);
-		
 		Scanner sc= new Scanner(System.in);
 		System.out.println("Enter the two numbers");
 		int a,b;
@@ -26,7 +25,6 @@ public class Main {
 		String s2="World";
 		String addition_String=t1.add(s1, s2);
 		System.out.println(addition_String);
-		
 		
 	}
 
