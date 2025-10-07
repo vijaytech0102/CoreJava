@@ -22,7 +22,10 @@ public class Student extends Person {
 		this.rollnumber=s.rollnumber;
 		this.marks=s.marks;
 	}
+	
 	// redefine// override
+	
+	@Override
 	void display()
 	{
 		super.display();
