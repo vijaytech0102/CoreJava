@@ -7,6 +7,7 @@ class Dog extends Animal {
 	{ 
 		System.out.println("Bark"); 
 	} 
+	
 	void sleep()
 	{
 		System.out.print("Sleeping");

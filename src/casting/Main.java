@@ -5,6 +5,9 @@ public class Main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
+		// Object creation--> normal
+		Bike objectname= new Bike();
+		
 		// upcasting--> child object= new Parent()
 		Engine object= new Bike();
 
