@@ -10,6 +10,7 @@ public class Person {
 	{
 		throw new InvalidAgeException("Invalid Age");
 	}
+	
   }
   
 }
