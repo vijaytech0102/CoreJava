@@ -1,4 +1,4 @@
-package builtInException;
+package userDefinedExceptions;
 
 public class InsufficientFund extends Exception {
 
