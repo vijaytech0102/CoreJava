@@ -11,6 +11,7 @@ public class BankSystem {
 		{
 			System.out.print(e.getMessage());
 		}
+		
 		try {
 			user.withdraw(2000);
 		}catch(InsufficientFund e)
