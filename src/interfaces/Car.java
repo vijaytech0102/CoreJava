@@ -11,6 +11,7 @@ public class Car implements Vehicle {
 	{
 		System.out.println("Car stopped");
 	}
+	
 	 public static void main(String[] args)
 	 {
 		 Car obj= new Car();

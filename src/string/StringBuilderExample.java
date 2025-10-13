@@ -82,6 +82,13 @@ public class StringBuilderExample {
         if (description.contains("camera")) {
             System.out.println("Camera feature found.");
         }
+        
+        String csv = "apple,banana,grape";
+        String[] fruits = csv.split(" ");
+        System.out.println(fruits[0]);
+        
+        String input = "";
+        System.out.println(input.isEmpty()); // true
 
     }
 }
