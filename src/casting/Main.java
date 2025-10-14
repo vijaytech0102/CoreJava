@@ -10,12 +10,15 @@ public class Main {
 		
 		// upcasting--> child object= new Parent()
 		Engine object= new Bike();
-
+		object.start();
+		Bike obj = (Bike) object;
+		obj.start();
 		//Normal object declaration
+		
 		Bike bike2= new Bike();
 		
 		if (object instanceof Bike) { 
-			Bike obj = (Bike) object;  //Down casting 
+			  //Down casting 
 			obj.kickStart(); // Now we can use BikeEngine methods 
 		}
 		
