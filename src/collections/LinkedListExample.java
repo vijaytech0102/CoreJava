@@ -10,11 +10,11 @@ public class LinkedListExample {
 		
 		// doubly linked list implemented
 		LinkedList<String> list= new LinkedList<>();
-		
 		list.add("Satyam");
 		list.add("karan");
 		list.add("Rahul");
-	
+		
+		
 	}
 
 }
