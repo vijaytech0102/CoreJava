@@ -19,6 +19,7 @@ public class SetExample {
 		
 		// set does allow duplicate elements
 		// It can store one null value
+		//It does not maintain order
 		Set<Integer>newList= new HashSet<>();
 		
 		for(int a:arlist)
@@ -38,6 +39,7 @@ public class SetExample {
         System.out.println("Set: " + fruits); // Output: [Apple, Banana] 
         
         //TreeSet--> sorted and no duplicates elements
+        // does not preserve order--> but create natural order
         TreeSet<String>data= new TreeSet<>();
         data.add("Hello");
         data.add("Rahul");
