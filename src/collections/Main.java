@@ -11,7 +11,7 @@ public class Main {
 		List<Notification> message= new ArrayList<>();
 		
 		// upcasting
-		Notification email= new EmailNotification();
+		Notification email= new EmailNotification(); 
 		Notification sms= new SmsNotifcation();
 		Notification push= new PushNotification();
 		

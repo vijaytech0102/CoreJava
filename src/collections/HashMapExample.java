@@ -52,5 +52,27 @@ public class HashMapExample {
 		company.put("Unknown", null);
 		company.put("Unknown2",null);
 		System.out.println("Treemap :"+company);
+	// write a program to count the frequency of each letter in a string
+		String str="Hello,world,welcome,to,java,programming,Hello,to";
+		String strArray[]=str.split(",");
+		
+		for(String s: strArray)
+		{
+			System.out.print(s+" ");
+		}
+		//--loop access character by character
+		//for(char ch:str.toCharArray())
+		// map<Character, Integer>count
+		// if( count.containsKey())
+		// h:1, e:1, l:3, o:2, w:1 r:1, d:1
+		HashMap<String, Integer>frequencyCount= new HashMap<>();		
+		
+		for(String s: strArray)
+		{
+			frequencyCount.put(s,frequencyCount.getOrDefault(s,0)+1);
+		}
+		System.out.println(frequencyCount);
+//		//h:1, e:1, l:3, o:2,w:1, r:1, d:1
+		
 	} 
 } 

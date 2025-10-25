@@ -14,6 +14,7 @@ class Animal {
 		super();
 		this.name = name;
 	}
+	
 	void input()
 	{
 		Scanner sc= new Scanner(System.in);
