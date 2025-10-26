@@ -1,6 +1,8 @@
 package collections;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.TreeMap;
 
 public class HashMapExample { 
@@ -56,17 +58,23 @@ public class HashMapExample {
 		String str="Hello,world,welcome,to,java,programming,Hello,to";
 		String strArray[]=str.split(",");
 		
+		for(int i=0; i<strArray.length; i++)
+		{
+			System.out.println(strArray[i]);
+		}
+		System.out.println();
 		for(String s: strArray)
 		{
 			System.out.print(s+" ");
 		}
+		System.out.println();
 		//--loop access character by character
 		//for(char ch:str.toCharArray())
 		// map<Character, Integer>count
 		// if( count.containsKey())
 		// h:1, e:1, l:3, o:2, w:1 r:1, d:1
-		HashMap<String, Integer>frequencyCount= new HashMap<>();		
 		
+		HashMap<String, Integer>frequencyCount= new HashMap<>();		
 		for(String s: strArray)
 		{
 			frequencyCount.put(s,frequencyCount.getOrDefault(s,0)+1);
@@ -74,5 +82,43 @@ public class HashMapExample {
 		System.out.println(frequencyCount);
 //		//h:1, e:1, l:3, o:2,w:1, r:1, d:1
 		
+		//LinkedHasMap
+		// 1. Insertion order maintain
+		LinkedHashMap<String, Integer> data= new LinkedHashMap<>();
+		for(String s: strArray)
+		{
+			data.put(s,data.getOrDefault(s,0)+1);
+		}
+		System.out.println(data);
+		
+		StringBuilder res= new StringBuilder();
+		
+		for(String s: data.keySet())
+		{
+			res.append(s);
+			System.out.print(s);
+		}
+		System.out.println();
+		System.out.println(res);
+		
+		for(Integer s: data.values())
+		{
+			res.append(s);
+			System.out.print(s);
+		}
+		System.out.println();
+		System.out.println(res);
+		
+		Map<String, Integer> map = new HashMap<>(); 
+		map.put("A", 1);
+		map.put("B", 2);
+		map.put("C", 3);
+		
+		for (Map.Entry<String, Integer> entry : map.entrySet()) { 
+		if(entry.getValue()%2==1)
+		   entry.setValue(34);
+		System.out.println("Key: " + entry.getKey() + ", Value: " + entry.getValue());
+		}
+
 	} 
 } 
