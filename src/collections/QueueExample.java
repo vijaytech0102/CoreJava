@@ -29,6 +29,7 @@ public class QueueExample {
 		// remove--> top element from the queue 
 		que.poll();
 		System.out.println(que);
+		
 		while(!que.isEmpty())
 		{
 			// top element point
