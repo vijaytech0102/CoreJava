@@ -30,7 +30,9 @@ public class StringBuilderExample {
 		System.out.println("Size of s:"+a);
 
 		//stirngname.charAt();
-		String nam = "Alice";
+		String nam = "Alice world java";
+		System.out.println("Result of Startswith method:"+nam.startsWith("Alice"));
+		System.out.println("Result of endswith method:"+nam.endsWith("java"));
 		if (Character.isUpperCase(nam.charAt(0))) {
 			System.out.println("Name starts with a capital letter.");
 		}
@@ -41,11 +43,16 @@ public class StringBuilderExample {
 			System.out.println(c);
 		}
 
-		for(int i=0; i<nam.length(); i++)
+		String rev[]=nam.split(" ");
+		
+		//0-index==> Alice, 1==> world, 2==> java
+		// i--> index rev[i]--> element, rev--> array
+		for(int i=rev.length-1; i>=0; i--)
 		{
-			System.out.println(nam.charAt(i));
+			System.out.print(rev[i]);
+//			System.out.println(nam[i]);
 		}
-
+		System.out.println();
 		//substring(starting index, end index)
 		String email = "user@example.com";
 		String domain = email.substring(email.indexOf("@") + 1);
@@ -106,5 +113,42 @@ public class StringBuilderExample {
 		String ans= String.join(",", arrr);
 		
 		System.out.println(ans);
+		
+		
+		//1. Java is a programming language--> language programming is a Java
+		//2. java is a fun -->> Java Is A Fun
+		//3. 20-01-2025--> 20/01/2025
+		//4.
+		System.out.println();
+		String sr= "Hello world welcome to java programming";// gnimmargorp
+				// 0->h, 1->e ,2->3
+		char[] ch=sr.toCharArray();
+		
+		for(int i=ch.length-1; i>=0; i--)
+		{
+			System.out.print(ch[i]);
+		}
+		System.out.println(ch.length);
+		// Write a program to capitalize each character in a string
+		// input--> hello world=> 	HELLO WORLD
+		//
+		String op="HELLO WOLRD";
+		System.out.println(op.toUpperCase());
+		//
+		
+		char chr[]=op.toCharArray();
+		for(int i=0; i<chr.length; i++)
+		{
+			char k=chr[i];
+			if(k!=32)
+			{
+			k=(char) (k+32);
+			}
+			System.out.print(k);
+//			System.out.print(chr[i]);
+		}
+		
+		
 	}
+
 }
