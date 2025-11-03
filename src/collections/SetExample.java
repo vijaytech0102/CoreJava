@@ -17,7 +17,7 @@ public class SetExample {
 		arlist.set(0, 50);
     	
 		
-		// set does allow duplicate elements
+		// set does not allow duplicate elements
 		// It can store one null value
 		//It does not maintain order
 		Set<Integer>newList= new HashSet<>();

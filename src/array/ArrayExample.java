@@ -158,5 +158,9 @@ public class ArrayExample {
 		System.out.println("Diagonal sum1:"+d1+ "Diagonal sum2:"+d2);
 		
 	}
-
+		 int A[][]= {{1,2},{4,5}};
+		 int B[][]= {{4,5},{8,9}};
+		 
+		 
+		 
 }

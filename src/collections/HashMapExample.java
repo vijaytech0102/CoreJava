@@ -93,6 +93,7 @@ public class HashMapExample {
 		
 		StringBuilder res= new StringBuilder();
 		
+		// keySet()
 		for(String s: data.keySet())
 		{
 			res.append(s);
@@ -101,6 +102,7 @@ public class HashMapExample {
 		System.out.println();
 		System.out.println(res);
 		
+		// values
 		for(Integer s: data.values())
 		{
 			res.append(s);
@@ -114,11 +116,16 @@ public class HashMapExample {
 		map.put("B", 2);
 		map.put("C", 3);
 		
+		// Entry and EntrySet
+		// updating a map using getValue and setValue
+		// Traversing--> visiting each element in the map
 		for (Map.Entry<String, Integer> entry : map.entrySet()) { 
 		if(entry.getValue()%2==1)
 		   entry.setValue(34);
 		System.out.println("Key: " + entry.getKey() + ", Value: " + entry.getValue());
 		}
-
+		
+		// Iterator
+		
 	} 
 } 
