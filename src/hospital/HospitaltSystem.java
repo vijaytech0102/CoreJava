@@ -15,6 +15,7 @@ public class HospitaltSystem {
     public static void main(String[] args) {
         initializeData();
         int choice;
+        
         do {
             System.out.println("\n--- Welcome To Hightech Hospital ---");
             System.out.println("1. Register Patient");
@@ -31,7 +32,6 @@ public class HospitaltSystem {
                 case 4 -> System.out.println("Thank you..");
                 default -> System.out.println("Invalid choice.");
             }
-            
             
         } while (choice != 4);
     }

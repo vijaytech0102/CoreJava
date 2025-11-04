@@ -7,6 +7,7 @@ public class PriorityQueueExample {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		// by default --> It behaves like min- heap
+		//
 		PriorityQueue<Integer> pq= new PriorityQueue<>();
 		pq.add(1);
 		pq.add(5);

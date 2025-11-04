@@ -12,6 +12,7 @@ public class QueueExample {
 		Queue<String> que= new LinkedList<String>();
 		
 		// adding an element
+		// offer()// add()
 		que.add("Hello");
 		que.add("world");
 		que.add("welcome");
