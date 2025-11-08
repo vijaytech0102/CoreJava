@@ -28,7 +28,7 @@ public class Student extends Person {
 	@Override
 	void display()
 	{
-		super.display();
+//		super.display();
 		System.out.println("Roll number:"+rollnumber);
 		System.out.println("Marks:"+marks);
 	}
@@ -45,6 +45,6 @@ public class Student extends Person {
 	
 	@Override
 	public String toString() {
-		return super.toString() + ", Name [Name=" + name+ "]";
+		return  "[Name=" + name+ "]";
 	}
 }

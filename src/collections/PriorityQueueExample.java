@@ -7,7 +7,7 @@ public class PriorityQueueExample {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		// by default --> It behaves like min- heap
-		//
+		// Max heap using comparator
 		PriorityQueue<Integer> pq= new PriorityQueue<>();
 		pq.add(1);
 		pq.add(5);
@@ -27,6 +27,7 @@ public class PriorityQueueExample {
 			System.out.println(pq.peek());
 			pq.remove();
 		}
+		pq.clear();
 	}
 
 }

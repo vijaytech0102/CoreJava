@@ -7,11 +7,13 @@ public class StackExample {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		
+		Stack<Integer>st= new Stack<>();
 		// Rule--> Last in first out/ First in last out 
 		// push() --> element add 
 		// pop()--> element remove
 		// peek() --> top element in the stack
-		Stack<Integer> st= new Stack<>();
+		 
 		
 		//element add in the stack --> add()/ push()
 		st.add(45);

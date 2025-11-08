@@ -1,18 +1,25 @@
 package compartorAndComparableExample;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
-public class Student {
+public class Student implements Comparable<Student> {
 	
 	// data member
 	String name;
 	int roll;
+	int age;
+	Float marks;
 	
-	public Student(String name, int roll) {
+	
+	// constructor
+	public Student(String name, int roll, int age, float marks) {
 		super();
 		this.name = name;
 		this.roll = roll;
+		this.age = age;
+		this.marks = marks;
 	}
 
 	public void display()
@@ -25,14 +32,26 @@ public class Student {
 	{
 		
 	}
-	public static void main(String[] args) {
+	
+	@Override
+	public int compareTo(Student s1)
+	{
+		return this.age-s1.age;
+	}
+	
+	 @Override
+	 public String toString()
+	 {
+		 return "Name"+":"+this.name+" Roll number:"+this.roll+" Marks:"+this.marks+ " Age:"+this.age+"";
+	 }
+	public static void main(String[] args){
 		// TODO Auto-generated method stub
 		
-		Student s1= new Student("Ajay",101);
-		Student s2= new Student("Karan", 102);
-		Student s3= new Student("Sataym",103);
-		Student s4= new Student("Aditya",104);
-		Student s5= new Student("Gaurav",105);
+		Student s1= new Student("Ajay",101, 23, 566f);
+		Student s2= new Student("Karan", 102,13,454.09f);
+		Student s3= new Student("Sataym",103,34,564.34f);
+		Student s4= new Student("Aditya",104,23, 454.56f);
+		Student s5= new Student("Gaurav",105,21,5634.09f);
 		// list of list---[[1,2,3],
 		//					[4,5,6],
 		//					[7,8,9]]
@@ -43,15 +62,28 @@ public class Student {
 		
 		//
 		List<Student> studentlist= new ArrayList<>();
-		studentlist.add(s1);
+		studentlist.add(s5);
 		studentlist.add(s2);
 		studentlist.add(s3);
+		studentlist.add(s1);
 		studentlist.add(s4);
-		studentlist.add(s5);
 		
+		System.out.println(studentlist.get(0).marks);
+		// before sorting
 		System.out.println(studentlist);
 		
+		// sort by age using comparable
+		Collections.sort(studentlist);
+		// after sorting
+		System.out.println(studentlist);
 		
+		// sort by name using comparator
+		Collections.sort(studentlist, new NameComparator());
+		System.out.println(studentlist);
+		
+		// sort by marks
+		Collections.sort(studentlist, new MarksComparator());
+		System.out.println(studentlist);
 	}
 
 }

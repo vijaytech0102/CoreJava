@@ -2,6 +2,7 @@ package interfaces;
 
 public class Car implements Vehicle {
 	
+	@Override
 	public void start()
 	{
 		System.out.println("Car started");
@@ -18,5 +19,8 @@ public class Car implements Vehicle {
 		 obj.start();
 		 obj.stop();
 	 }
-	 
+	 public void running()
+	 {
+		 System.out.println("Running");
+	 }
 }
