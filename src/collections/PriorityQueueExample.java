@@ -1,5 +1,6 @@
 package collections;
 
+import java.util.Collections;
 import java.util.PriorityQueue;
 
 public class PriorityQueueExample {
@@ -8,7 +9,7 @@ public class PriorityQueueExample {
 		// TODO Auto-generated method stub
 		// by default --> It behaves like min- heap
 		// Max heap using comparator
-		PriorityQueue<Integer> pq= new PriorityQueue<>();
+		PriorityQueue<Integer> pq= new PriorityQueue<>(Collections.reverseOrder());
 		pq.add(1);
 		pq.add(5);
 		pq.add(3);

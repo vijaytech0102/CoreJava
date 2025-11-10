@@ -69,11 +69,13 @@ public class Student implements Comparable<Student> {
 		studentlist.add(s4);
 		
 		System.out.println(studentlist.get(0).marks);
+		
 		// before sorting
 		System.out.println(studentlist);
 		
 		// sort by age using comparable
 		Collections.sort(studentlist);
+		
 		// after sorting
 		System.out.println(studentlist);
 		
