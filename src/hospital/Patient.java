@@ -17,15 +17,33 @@ public class Patient extends Person implements Billable {
 
     @Override
     public double generateBill() {
-        return type.equalsIgnoreCase("Surgery") ? 5000.0 : 1000.0;
+    	// ternary operator
+    	if(type.equalsIgnoreCase("Surgery"))
+    	{
+    		return 5000;
+    	}
+    	else {
+    		return 1000;
+    	}
+//        return type.equalsIgnoreCase("Surgery") ? 5000.0 : 1000.0;
     }
 
-    public String getPatientId() {
-        return patientId;
-    }
+	public String getPatientId() {
+		return patientId;
+	}
 
-    public String getType() {
-        return type;
-    }
+	public void setPatientId(String patientId) {
+		this.patientId = patientId;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+    
 }
 

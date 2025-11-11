@@ -1,5 +1,6 @@
 package hospital;
 
 interface Billable {
-    double generateBill();
+   // abstract method
+	double generateBill();
 }

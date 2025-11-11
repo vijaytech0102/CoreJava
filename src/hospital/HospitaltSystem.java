@@ -6,7 +6,7 @@ import java.time.LocalDate;
 import java.util.*;
 
 public class HospitaltSystem {
-   
+	
 	private static List<Doctor> doctors = new ArrayList<>();
     private static List<Patient> patients = new ArrayList<>();
     private static List<Appointment> appointments = new ArrayList<>();
@@ -43,6 +43,16 @@ public class HospitaltSystem {
 
     private static void registerPatient() {
         scanner.nextLine(); // consume newline
+        System.out.print("Enter Patient ID: ");
+        String id = scanner.nextLine();
+        for(Patient p: patients)
+        {
+        	if(p.getPatientId().equalsIgnoreCase(id))
+        	{
+        		System.out.println("Patient already registered");
+        		return;
+        	}
+        }
         System.out.print("Enter Name: ");
         String name = scanner.nextLine();
         System.out.print("Enter Age: ");
@@ -50,19 +60,22 @@ public class HospitaltSystem {
         scanner.nextLine();
         System.out.print("Enter Contact: ");
         String contact = scanner.nextLine();
-        System.out.print("Enter Patient ID: ");
-        String id = scanner.nextLine();
+       
         System.out.print("Enter Type (General/Surgery): ");
         String type = scanner.nextLine();
-
-        patients.add(new Patient(name, age, contact, id, type));
+        Patient obj=new Patient(name, age, contact, id, type);
+        patients.add(obj);
         System.out.println("Patient Registered Successfully1!.");
     }
 
+    // list of appointments
+    //-->appointments [ap1, ap2, ap3]
     private static void bookAppointment() {
         scanner.nextLine();
         System.out.print("Enter Patient ID: ");
         String pid = scanner.nextLine();
+        
+        // 1.check whether patient available in appointment list
         for(Appointment a:appointments)
         {
         	Patient old=a.getPatient();
@@ -72,20 +85,23 @@ public class HospitaltSystem {
         		System.out.println("Appointment already booked");
         	}
         }
+        //2. check whether patient present in the in patient list
         Patient patient = findPatientById(pid);
+        //3. if patient not found then return
         if (patient == null) {
             System.out.println("Patient not found!!!!.");
             return;
         }
-
+        //4. If patient found --> then book appointment
         System.out.print("Enter Specialization: ");
         String spec = scanner.nextLine();
         Doctor doctor = findDoctorBySpecialization(spec);
+        //5. if doctor not found
         if (doctor == null) {
             System.out.println("No doctor available with that specialization.");
             return;
         }
-
+        // 6. if doctor available
         System.out.print("Enter Appointment Date (YYYY-MM-DD): ");
         String dateStr = scanner.nextLine();
         LocalDate date = LocalDate.parse(dateStr);
@@ -111,7 +127,7 @@ public class HospitaltSystem {
 
     private static Patient findPatientById(String id) {
         for (Patient p : patients) {
-            if (p.getPatientId().equalsIgnoreCase(id)) {
+            if (p.getPatientId().equals(id)) {
                 return p;
             }
         }

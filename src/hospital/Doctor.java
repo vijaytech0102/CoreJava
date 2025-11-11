@@ -15,11 +15,21 @@ public class Doctor extends Person {
         System.out.println("Doctor: " + name + " | Specialization: " + specialization);
     }
 
-    public String getDoctorId() {
-        return doctorId;
-    }
+	public String getDoctorId() {
+		return doctorId;
+	}
 
-    public String getSpecialization() {
-        return specialization;
-    }
+	public void setDoctorId(String doctorId) {
+		this.doctorId = doctorId;
+	}
+
+	public String getSpecialization() {
+		return specialization;
+	}
+
+	public void setSpecialization(String specialization) {
+		this.specialization = specialization;
+	}
+
+    
 }

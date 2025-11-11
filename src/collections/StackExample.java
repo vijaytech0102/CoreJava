@@ -33,7 +33,6 @@ public class StackExample {
 		System.out.println(st.peek());
 		
 		Vector<Integer> vc= new Vector<>();
-		
 		vc.add(56);
 		vc.add(78);
 		vc.add(78);
