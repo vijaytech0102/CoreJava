@@ -6,16 +6,20 @@ import java.time.LocalDate;
 import java.util.*;
 
 public class HospitaltSystem {
+	//[doc1, doc2, doc3]
+	private static List<Doctor> doctors = new ArrayList<>(); // list of object
+	// doctors.get(1)
+    //[pa1, pa2, pa3]
+	private static List<Patient> patients = new ArrayList<>();
+    //[ap1, ap2, ap3]
+	private static List<Appointment> appointments = new ArrayList<>();
+    // user input Scanner class
+	private static Scanner scanner = new Scanner(System.in);
 	
-	private static List<Doctor> doctors = new ArrayList<>();
-    private static List<Patient> patients = new ArrayList<>();
-    private static List<Appointment> appointments = new ArrayList<>();
-    private static Scanner scanner = new Scanner(System.in);
-
     public static void main(String[] args) {
-        initializeData();
+      // call 
+    	initializeData();
         int choice;
-        
         do {
             System.out.println("\n--- Welcome To Hightech Hospital ---");
             System.out.println("1. Register Patient");
@@ -39,12 +43,16 @@ public class HospitaltSystem {
     private static void initializeData() {
         doctors.add(new Doctor("Dr. Mehta", 45, "9999999999", "D101", "Cardiology"));
         doctors.add(new Doctor("Dr. Kapoor", 50, "8888888888", "D102", "Orthopedics"));
+        doctors.add(new Doctor("Dr. Neeraj", 45, "45554556454", "D103","Heart Specialist"));
+ 
     }
 
     private static void registerPatient() {
-        scanner.nextLine(); // consume newline
+        scanner.nextLine(); // consume newline Enter key consume
+        
         System.out.print("Enter Patient ID: ");
         String id = scanner.nextLine();
+        
         for(Patient p: patients)
         {
         	if(p.getPatientId().equalsIgnoreCase(id))
@@ -85,7 +93,7 @@ public class HospitaltSystem {
         		System.out.println("Appointment already booked");
         	}
         }
-        //2. check whether patient present in the in patient list
+        //2. check whether patient present in the in patient list --> checking of patient registration
         Patient patient = findPatientById(pid);
         //3. if patient not found then return
         if (patient == null) {
@@ -121,10 +129,11 @@ public class HospitaltSystem {
             return;
         }
         for (Appointment a : appointments) {
-            a.displaySummary();
+            // non static method--> with the help of object
+        	a.displaySummary();
         }
     }
-
+    // method definition 
     private static Patient findPatientById(String id) {
         for (Patient p : patients) {
             if (p.getPatientId().equals(id)) {

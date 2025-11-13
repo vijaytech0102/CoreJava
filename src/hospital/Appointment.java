@@ -21,6 +21,7 @@ public class Appointment {
 
     public void displaySummary() {
         System.out.println("\n--- Appointment Summary ---");
+        
         patient.getDetails();
         doctor.getDetails();
         System.out.println("Date: " + date);

@@ -36,13 +36,15 @@ public class Student implements Comparable<Student> {
 	@Override
 	public int compareTo(Student s1)
 	{
-		return this.age-s1.age;
+		return s1.age-this.age;
 	}
 	
 	 @Override
 	 public String toString()
 	 {
-		 return "Name"+":"+this.name+" Roll number:"+this.roll+" Marks:"+this.marks+ " Age:"+this.age+"";
+		 return age+" ";
+		 
+//		 return "Name"+":"+this.name+" Roll number:"+this.roll+" Marks:"+this.marks+ " Age:"+this.age+"";
 	 }
 	public static void main(String[] args){
 		// TODO Auto-generated method stub
