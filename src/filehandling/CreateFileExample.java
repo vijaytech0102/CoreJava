@@ -5,13 +5,13 @@ import java.io.IOException;
 
 public class CreateFileExample {
     public static void main(String[] args) {
-        try {
+        try {	
+
         	// File class
-            File file = new File("hello.txt");
-            
+            File file = new File("file1.txt"); 
             if (file.createNewFile()) {
                 System.out.println("File created: " + file.getName());
-            } else {
+            }else{
                 System.out.println("File already exists.");
             }
         } catch (IOException e) {

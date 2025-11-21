@@ -6,8 +6,8 @@ import java.io.IOException;
 public class ReadFileExample {
     public static void main(String[] args) {
         try {
-        	
             FileReader reader = new FileReader("example.txt");
+            //ASCII --> A to Z - 65 to 90 and a to z --> 97 to 122
             int character;
             int count=0;
             character = reader.read();

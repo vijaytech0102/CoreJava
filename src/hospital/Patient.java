@@ -44,6 +44,13 @@ public class Patient extends Person implements Billable {
 		this.type = type;
 	}
 
+	@Override
+	public String toString() {
+		return "Patient [patientId=" + patientId + ", type=" + type + ", name=" + name + ", age=" + age + ", contact="
+				+ contact + "]";
+	}
+
+	
     
 }
 

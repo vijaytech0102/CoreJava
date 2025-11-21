@@ -6,14 +6,20 @@ import java.time.LocalDate;
 
 public class Appointment {
     
+	private String aid;
 	private Patient patient;
     private Doctor doctor;
     private LocalDate date;
-
-    public Appointment(Patient patient, Doctor doctor, LocalDate date) throws InvalidAppointmentException {
+    
+    
+    
+    
+    
+    public Appointment(String aid,Patient patient, Doctor doctor, LocalDate date) throws InvalidAppointmentException {
         if (date.isBefore(LocalDate.now())) {
             throw new InvalidAppointmentException("Cannot book appointment in the past.");
         }
+        this.aid=aid;
         this.patient = patient;
         this.doctor = doctor;
         this.date = date;
@@ -28,15 +34,37 @@ public class Appointment {
         System.out.println("Estimated Bill: ₹" + patient.generateBill());
     }
 
-    public Patient getPatient() {
-        return patient;
-    }
+	public String getAid() {
+		return aid;
+	}
 
-    public Doctor getDoctor() {
-        return doctor;
-    }
+	public void setAid(String aid) {
+		this.aid = aid;
+	}
 
-    public LocalDate getDate() {
-        return date;
-    }
+	public Patient getPatient() {
+		return patient;
+	}
+
+	public void setPatient(Patient patient) {
+		this.patient = patient;
+	}
+
+	public Doctor getDoctor() {
+		return doctor;
+	}
+
+	public void setDoctor(Doctor doctor) {
+		this.doctor = doctor;
+	}
+
+	public LocalDate getDate() {
+		return date;
+	}
+
+	public void setDate(LocalDate date) {
+		this.date = date;
+	}
+
+    
 }

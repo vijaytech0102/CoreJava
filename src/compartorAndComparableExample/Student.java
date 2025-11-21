@@ -36,24 +36,25 @@ public class Student implements Comparable<Student> {
 	@Override
 	public int compareTo(Student s1)
 	{
+		// descending order --> other-this
+		// ascending order --> this-other
 		return s1.age-this.age;
 	}
 	
 	 @Override
 	 public String toString()
 	 {
-		 return age+" ";
-		 
+		 return name; 
 //		 return "Name"+":"+this.name+" Roll number:"+this.roll+" Marks:"+this.marks+ " Age:"+this.age+"";
 	 }
 	public static void main(String[] args){
 		// TODO Auto-generated method stub
 		
-		Student s1= new Student("Ajay",101, 23, 566f);
-		Student s2= new Student("Karan", 102,13,454.09f);
-		Student s3= new Student("Sataym",103,34,564.34f);
-		Student s4= new Student("Aditya",104,23, 454.56f);
-		Student s5= new Student("Gaurav",105,21,5634.09f);
+		Student s1= new Student("Aj",101, 23, 566f);
+		Student s2= new Student("Kar", 102,13,454.09f);
+		Student s3= new Student("Sataym",104,34,564.34f);
+		Student s4= new Student("A",104,23, 454.56f);
+		Student s5= new Student("Gauravbbb",105,21,5634.09f);
 		// list of list---[[1,2,3],
 		//					[4,5,6],
 		//					[7,8,9]]
@@ -72,14 +73,14 @@ public class Student implements Comparable<Student> {
 		
 		System.out.println(studentlist.get(0).marks);
 		
-		// before sorting
-		System.out.println(studentlist);
-		
-		// sort by age using comparable
-		Collections.sort(studentlist);
-		
-		// after sorting
-		System.out.println(studentlist);
+//		// before sorting
+//		System.out.println(studentlist);
+//		
+//		// sort by age using comparable
+//		Collections.sort(studentlist);
+//		
+//		// after sorting
+//		System.out.println(studentlist);
 		
 		// sort by name using comparator
 		Collections.sort(studentlist, new NameComparator());

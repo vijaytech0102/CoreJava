@@ -25,7 +25,11 @@ public class HospitaltSystem {
             System.out.println("1. Register Patient");
             System.out.println("2. Book Appointment");
             System.out.println("3. Display Appointments");
-            System.out.println("4. Exit");
+            System.out.println("4. Update Patient");         
+            System.out.println("5. Patient List");
+            System.out.println("6. Update Appointment");
+            System.out.println("7. Cancel Appointment");
+            System.out.println("8. Exit");
             System.out.print("Enter your choice: ");
             choice = scanner.nextInt();
 
@@ -33,14 +37,70 @@ public class HospitaltSystem {
                 case 1 -> registerPatient();
                 case 2 -> bookAppointment();
                 case 3 -> displayAppointments();
-                case 4 -> System.out.println("Thank you..");
+                case 4 -> updatePatient();
+                case 5-> displayPatients();
+                case 6-> updateAppointment();
+                case 7-> cancelAppointment();
+                case 8 -> System.out.println("Thank you..");
                 default -> System.out.println("Invalid choice.");
             }
             
-        } while (choice != 4);
+        } while (choice != 8);
     }
 
-    private static void initializeData() {
+    private static void cancelAppointment() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private static void updateAppointment() {
+		// TODO Auto-generated method stub
+		scanner.nextLine();
+		System.out.println("Enter the Appointment Id:");
+		String apid=scanner.nextLine();
+		Appointment obj= findAppointmentById(apid);
+		Patient pobj=obj.getPatient();
+		System.out.println("Enter the name to update:");
+		String u_name=scanner.nextLine();
+		pobj.setName(u_name);
+		System.out.println("Name updated succesfully");
+	}
+
+	private static Appointment findAppointmentById(String apid) {
+		// TODO Auto-generated method 
+		for(Appointment obj:appointments)
+		{
+			if(obj.getAid().equalsIgnoreCase(apid))
+			{
+				return obj;
+			}
+		}
+		return null;
+	}
+
+	private static void displayPatients() {
+		// TODO Auto-generated method stub
+		for(Patient p: patients)
+		{
+			System.out.println(p);
+		}
+	}
+
+	private static void updatePatient() {
+		// TODO Auto-generated method stub
+		scanner.nextLine();
+    	System.out.println("Enter the Patient Id:");
+    	String pid=scanner.nextLine();
+    	Patient pobj=findPatientById(pid);
+    	System.out.println("Do you want update patient name!! Please enter correct name");
+    	String u_name=scanner.nextLine();
+    	pobj.setName(u_name);
+    
+    	System.out.println("Patient Name updated Successfully");
+    	return;
+	}
+
+	private static void initializeData() {
         doctors.add(new Doctor("Dr. Mehta", 45, "9999999999", "D101", "Cardiology"));
         doctors.add(new Doctor("Dr. Kapoor", 50, "8888888888", "D102", "Orthopedics"));
         doctors.add(new Doctor("Dr. Neeraj", 45, "45554556454", "D103","Heart Specialist"));
@@ -113,9 +173,11 @@ public class HospitaltSystem {
         System.out.print("Enter Appointment Date (YYYY-MM-DD): ");
         String dateStr = scanner.nextLine();
         LocalDate date = LocalDate.parse(dateStr);
-
+        System.out.println("Enter the appointment Id:");
+        int appointmentId=scanner.nextInt();
+        
         try {
-            Appointment appointment = new Appointment(patient, doctor, date);
+            Appointment appointment = new Appointment(appointmentId,patient, doctor, date);
             appointments.add(appointment);
             System.out.println("Appointment Booked Successfully.");
         } catch (InvalidAppointmentException e) {
@@ -133,7 +195,7 @@ public class HospitaltSystem {
         	a.displaySummary();
         }
     }
-    // method definition 
+    // method definition [obj1 101, obj2 102, obj3 103]
     private static Patient findPatientById(String id) {
         for (Patient p : patients) {
             if (p.getPatientId().equals(id)) {
