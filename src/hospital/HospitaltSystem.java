@@ -174,10 +174,10 @@ public class HospitaltSystem {
         String dateStr = scanner.nextLine();
         LocalDate date = LocalDate.parse(dateStr);
         System.out.println("Enter the appointment Id:");
-        int appointmentId=scanner.nextInt();
+        String appointmentId=scanner.nextLine();
         
         try {
-            Appointment appointment = new Appointment(appointmentId,patient, doctor, date);
+            Appointment appointment = new Appointment(appointmentId, patient, doctor, date);
             appointments.add(appointment);
             System.out.println("Appointment Booked Successfully.");
         } catch (InvalidAppointmentException e) {

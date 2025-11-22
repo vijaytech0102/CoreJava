@@ -11,9 +11,7 @@ public class Appointment {
     private Doctor doctor;
     private LocalDate date;
     
-    
-    
-    
+   
     
     public Appointment(String aid,Patient patient, Doctor doctor, LocalDate date) throws InvalidAppointmentException {
         if (date.isBefore(LocalDate.now())) {
