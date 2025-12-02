@@ -12,6 +12,7 @@ public class BankSystem {
 		int choice;
 
 		do {
+			
 			System.out.println("\n-----Welcome to My Bank----");
 			System.out.println("1. Create Account :");
 			System.out.println("2. Perform Transaction:");
@@ -110,7 +111,6 @@ public class BankSystem {
 			System.out.println("Invalid Type");
 			return;
 		}
-
 		accounts.add(newAcc);
 		System.out.println(accounts);
 		System.out.println("Account Created Successfully..");

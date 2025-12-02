@@ -1,5 +1,8 @@
 package hospital;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.time.LocalDate;
 
 import java.time.LocalDate;
@@ -178,6 +181,12 @@ public class HospitaltSystem {
         
         try {
             Appointment appointment = new Appointment(appointmentId, patient, doctor, date);
+            try (ObjectOutputStream obj = new ObjectOutputStream(new FileOutputStream("appointment.ser"))) {
+                obj.writeObject(appointment);
+                System.out.println("Object serialized!");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             appointments.add(appointment);
             System.out.println("Appointment Booked Successfully.");
         } catch (InvalidAppointmentException e) {

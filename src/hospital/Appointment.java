@@ -1,10 +1,11 @@
 package hospital;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 import java.time.LocalDate;
 
-public class Appointment {
+public class Appointment implements Serializable {
     
 	private String aid;
 	private Patient patient;

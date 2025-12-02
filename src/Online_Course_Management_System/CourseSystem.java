@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class CourseSystem {
 
-    // [] --> list
+     //  [] --> list
 	//[obj1->(name, id, contact,password,type,[courselist1]), obj2->(name, id, contact,password,type,[courselist1]),obj3->(name, id, contact,password,type,[courselist1]),]]==> students
 	private static List<Student> students = new ArrayList<>();
     //[obj1(id, name ,numner), obj2(id, name ,numner), obj3(id, name ,numner)]
@@ -14,7 +14,6 @@ public class CourseSystem {
     //[obj1(id, name, price)]
 	private static List<Course> courses = new ArrayList<>();
     private static Scanner scanner = new Scanner(System.in);
-
     public static void main(String[] args) {
         initializeCourse();
         int choice;
@@ -166,6 +165,7 @@ public class CourseSystem {
         }
         return null;
     }
+    
     private static Student  findStudentById(String sid)
     {
 
