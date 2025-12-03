@@ -1,6 +1,9 @@
 package hospital;
 
-public abstract class Person {
+import java.io.Serializable;
+
+public abstract class Person implements Serializable {
+    private static final long serialVersionUID = 1L;
     protected String name;
     protected int age;
     protected String contact;

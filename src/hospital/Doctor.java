@@ -1,6 +1,9 @@
 package hospital;
 
 public class Doctor extends Person {
+	
+    private static final long serialVersionUID = 1L;
+
     private String doctorId;
     private String specialization;
 

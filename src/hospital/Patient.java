@@ -1,6 +1,8 @@
 package hospital;
 
 public class Patient extends Person implements Billable {
+    private static final long serialVersionUID = 1L;
+
     private String patientId;
     private String type; // "General" or "Surgery"
 
@@ -12,19 +14,11 @@ public class Patient extends Person implements Billable {
 
     @Override
     public void getDetails() {
-        System.out.println("Patient: " + name + " | Type: " + type);
+        System.out.println("Patient: " + name + " | Type: " + type + " | ID: " + patientId);
     }
 
     @Override
     public double generateBill() {
-    	// ternary operator
-//    	if(type.equalsIgnoreCase("Surgery"))
-//    	{
-//    		return 5000;
-//    	}
-//    	else {
-//    		return 1000;
-//    	}
         return type.equalsIgnoreCase("Surgery") ? 5000.0 : 1000.0;
     }
 
@@ -50,7 +44,5 @@ public class Patient extends Person implements Billable {
 				+ contact + "]";
 	}
 
-	
     
 }
-
