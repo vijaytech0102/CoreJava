@@ -179,6 +179,7 @@ public class HospitaltSystem {
         String type = scanner.nextLine();
         Patient obj=new Patient(name, age, contact, id, type);
         patients.add(obj);
+        // serialize
         savePatientsSafely();
         System.out.println("Patient Registered Successfully!.");
     }
@@ -232,15 +233,13 @@ public class HospitaltSystem {
 
         try {
             Appointment appointment = new Appointment(appointmentId, patient, doctor, date);
-            try (ObjectOutputStream obj = new ObjectOutputStream(new FileOutputStream("appointment.ser"))) {
-                obj.writeObject(appointment);
-                System.out.println("Object serialized!");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+//            try (ObjectOutputStream obj = new ObjectOutputStream(new FileOutputStream("appointment.ser"))) {
+//                obj.writeObject(appointment);
+//                System.out.println("Object serialized!");
             appointments.add(appointment);
             saveAppointmentsSafely();
             System.out.println("Appointment Booked Successfully.");
+          
         } catch (InvalidAppointmentException e) {
             System.out.println("Error:" + e.getMessage());
         }
@@ -286,6 +285,7 @@ public class HospitaltSystem {
 
     private static void savePatientsSafely() {
         try {
+        	// Serialize
             FileUtils.saveList(PATIENTS_FILE, patients);
         } catch (IOException e) {
             System.err.println("Failed to save patients: " + e.getMessage());
