@@ -7,6 +7,7 @@ import java.util.List;
 public final class FileUtils {
     private FileUtils() { }
 
+    // serialize--> to save the object in the file
     public static <T> void saveList(File file, List<T> list) throws IOException {
         // ensure parent dirs
         File parent = file.getParentFile();
@@ -16,7 +17,7 @@ public final class FileUtils {
             oos.writeObject(list);
         }
     }
-
+    // de-serialize--> to load the object from the file to local class
     @SuppressWarnings("unchecked")
     public static <T> List<T> loadList(File file) throws IOException, ClassNotFoundException {
         if (!file.exists()) return new ArrayList<>();

@@ -299,7 +299,8 @@ public class HospitaltSystem {
             System.err.println("Failed to save appointments: " + e.getMessage());
         }
     }
-
+   
+    //deserialization
     private static void loadData() {
         try {
             doctors = FileUtils.loadList(DOCTORS_FILE);

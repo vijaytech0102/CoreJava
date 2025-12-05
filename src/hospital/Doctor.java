@@ -6,6 +6,7 @@ public class Doctor extends Person {
 
     private String doctorId;
     private String specialization;
+    private String add;
 
     public Doctor(String name, int age, String contact, String doctorId, String specialization) {
         super(name, age, contact);
