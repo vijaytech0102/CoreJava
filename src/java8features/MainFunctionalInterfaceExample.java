@@ -11,6 +11,9 @@ public class MainFunctionalInterfaceExample {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		
+		
+		
 		Calculator add=(a,b)->a+b;
 		System.out.println("Addition: "+add.calculate(10, 20));
 		
@@ -24,6 +27,7 @@ public class MainFunctionalInterfaceExample {
 		
 		Function<String, String> string = s -> s.replace("Hello", "J");
 		System.out.println(string.apply("Hello world"));
+		
 		// accept(T t): performs some operation on the given argument
 		Consumer<String> greeter = name -> System.out.println("Hello " + name);
 		greeter.accept("Alice"); // Hello Alice

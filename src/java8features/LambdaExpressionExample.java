@@ -27,8 +27,8 @@ public class LambdaExpressionExample {
         List<Integer> filtered = integers.stream()
             .filter(n -> n > 30)
             .collect(Collectors.toList());
-        filtered.forEach(n -> System.out.println("Filtered: " + n));
-
+        filtered.forEach(n -> System.out.println("Filtereds: " + n));
+        int a=90;
 	}
 
 }
