@@ -1,5 +1,6 @@
 package java8features;
 
+import java.util.Scanner;
 import java.util.function.BinaryOperator;
 import java.util.function.Consumer;
 import java.util.function.Function;
@@ -14,23 +15,27 @@ public class MainFunctionalInterfaceExample {
 		
 		
 		
-		Calculator add=(a,b)->a+b;
-		System.out.println("Addition: "+add.calculate(10, 20));
+//		Calculator add=(a,b,c)->a+b+c;
+//		Scanner sc= new Scanner(System.in);
+//		String a,b,c;
+//		System.out.println("Enter the value of a, b,c:");
+//		a=sc.nextLine();
+//		b=sc.nextLine();
+//		c=sc.nextLine();
+//		System.out.println("Addition: "+add.calculate(a, b,c));
 		
-		// test(T t): boolean value according to condition  
-		Predicate<Integer> isPositive = n -> n > 0;
+		// test(T t): boolean value according to condition--> relational and logical operator  
+		Predicate<Integer> isPositive = n -> n>0 && n<1000;
 		System.out.println(isPositive.test(5)); // true
 		
 		// apply(T t): R value after applying some function
-		Function<String, Integer> stringLength = s -> s.length();
-		System.out.println(stringLength.apply("Hello")); // 5
-		
-		Function<String, String> string = s -> s.replace("Hello", "J");
-		System.out.println(string.apply("Hello world"));
+		Function<String, String> stringReplace = s -> s.replace("Hello", "hii");
+		System.out.println(stringReplace.apply("Hello")); // 5
+		  
 		
 		// accept(T t): performs some operation on the given argument
-		Consumer<String> greeter = name -> System.out.println("Hello " + name);
-		greeter.accept("Alice"); // Hello Alice
+		Consumer<Integer> greeter = name -> System.out.println("Hello " + name);
+		greeter.accept(5); // Hello Alice
 
 		Consumer<Integer> greeter1 = name -> System.out.println(100* name);
 		greeter1.accept(5); // Hello Alice
@@ -40,12 +45,12 @@ public class MainFunctionalInterfaceExample {
 		System.out.println(randomValue.get()); // e.g., 0.7234
 
 		// apply(T t): returns a value after applying some operation on the input
-		UnaryOperator<Integer> square = n -> n%n;
+		UnaryOperator<Integer> square = n -> n*n;
 		System.out.println(square.apply(4)); // 16
 		
 		// apply(T t, U u): returns a value after applying some operation on two inputs
-		BinaryOperator<Integer> ad = (a, b) -> a | b;
-		System.out.println(ad.apply(5, 7)); // 101
+		BinaryOperator<Integer> ad = (a, b) -> a >> b;
+		System.out.println(ad.apply(5, 1)); // 101
 											// 101
 
 	}
