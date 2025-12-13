@@ -4,6 +4,6 @@ package java8features;
 public interface Calculator {
 	
 	// abstract method
-	String calculate(String a, String b, String c);
+	String calculate(String a, String b, String  c);
 	
 }

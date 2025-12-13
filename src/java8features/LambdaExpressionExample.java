@@ -12,6 +12,7 @@ public class LambdaExpressionExample {
 		List<String> numbers =  new ArrayList<>();
 		numbers.add("One");
 		numbers.add("Two");
+		 
 		numbers.add("Three");
 		
 		List<String> digit =  new ArrayList<>();

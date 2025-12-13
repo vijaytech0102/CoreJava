@@ -237,6 +237,7 @@ public class HospitaltSystem {
 //                obj.writeObject(appointment);
 //                System.out.println("Object serialized!");
             appointments.add(appointment);
+            
             saveAppointmentsSafely();
             System.out.println("Appointment Booked Successfully.");
           
