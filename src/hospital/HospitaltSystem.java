@@ -38,7 +38,8 @@ public class HospitaltSystem {
             System.out.println("5. Patient List");
             System.out.println("6. Update Appointment");
             System.out.println("7. Cancel Appointment");
-            System.out.println("8. Exit");
+            System.out.println("8. Display Doctors");
+            System.out.println("9. Exit");
             System.out.print("Enter your choice: ");
             while (!scanner.hasNextInt()) {
                 System.out.println("Please enter a number between 1 and 8.");
@@ -54,17 +55,30 @@ public class HospitaltSystem {
                 case 5-> displayPatients();
                 case 6-> updateAppointment();
                 case 7-> cancelAppointment();
-                case 8 -> System.out.println("Thank you..");
+                case 8-> displayDoctors();
+                case 9 -> System.out.println("Thank you..");
                 default -> System.out.println("Invalid choice.");
             }
 
-        } while (choice != 8);
+        } while (choice != 9);
 
         // save data before exit
         saveAllData();
     }
 
-    private static void cancelAppointment() {
+    private static void displayDoctors() {
+		// TODO Auto-generated method stub
+    	  if(doctors.isEmpty()){
+              System.out.println("No Doctor registered.");
+              return;
+          }
+          for(Doctor d: doctors)
+          {
+              System.out.println(d);
+          }
+	}
+
+	private static void cancelAppointment() {
         scanner.nextLine();
         System.out.println("Enter the Appointment Id to cancel:");
         String apid = scanner.nextLine();
@@ -186,64 +200,64 @@ public class HospitaltSystem {
 
     // list of appointments
     //-->appointments [ap1, ap2, ap3]
-    private static void bookAppointment() {
+    private static void bookAppointment(){
         scanner.nextLine();
+        
         System.out.print("Enter Patient ID: ");
-        String pid = scanner.nextLine();
+      
+      String pid = scanner.nextLine();
 
-        // 1.check whether patient available in appointment list
-        for(Appointment a:appointments)
-        {
-            Patient old=a.getPatient();
-            String oldpid=old.getPatientId();
-            if(oldpid.equals(pid))
-            {
-                System.out.println("Appointment already booked for this patient");
-                return;
-            }
-        }
-        //2. check whether patient present in the in patient list --> checking of patient registration
-        Patient patient = findPatientById(pid);
-        //3. if patient not found then return
-        if (patient == null) {
-            System.out.println("Patient not found!!!!.");
-            return;
-        }
-        //4. If patient found --> then book appointment
-        System.out.print("Enter Specialization: ");
-        String spec = scanner.nextLine();
-        Doctor doctor = findDoctorBySpecialization(spec);
-        //5. if doctor not found
-        if (doctor == null) {
-            System.out.println("No doctor available with that specialization.");
-            return;
-        }
-        // 6. if doctor available
-        System.out.print("Enter Appointment Date (YYYY-MM-DD): ");
-        String dateStr = scanner.nextLine();
-        LocalDate date;
-        try {
-            date = LocalDate.parse(dateStr);
-        } catch (Exception e) {
-            System.out.println("Invalid date format. Use YYYY-MM-DD.");
-            return;
-        }
-        System.out.println("Enter the appointment Id:");
-        String appointmentId=scanner.nextLine();
+      // 1.check whether patient available in appointment list
+      for(Appointment a:appointments)
+      {
+		Patient old=a.getPatient();
+		String oldpid=old.getPatientId();
+		if(oldpid.equals(pid))
+		{
+		    System.out.println("Appointment already booked for this patient");
+		    return;
+		}
+      }
+      //2. check whether patient present in the in patient list --> checking of patient registration
+      Patient patient = findPatientById(pid);
+      //3. if patient not found then return
+      if (patient == null) {
+		System.out.println("Patient not found!!!!.");
+		return;
+      }
+      //4. If patient found --> then book appointment
+      System.out.print("Enter Specialization: ");
+      String spec = scanner.nextLine();
+      Optional<Doctor> doctor  = Optional.of(findDoctorBySpecialization(spec));
+      //5. if doctor not found
+      if (doctor.isPresent()) {
+		 // 6. if doctor available
+		System.out.print("Enter Appointment Date (YYYY-MM-DD): ");
+		String dateStr = scanner.nextLine();
+		LocalDate date;
+		try {
+		    date = LocalDate.parse(dateStr);
+		} catch (Exception e) {
+		    System.out.println("Invalid date format. Use YYYY-MM-DD.");
+		    return;
+		}
+		System.out.println("Enter the appointment Id:");
+		String appointmentId=scanner.nextLine();
 
-        try {
-            Appointment appointment = new Appointment(appointmentId, patient, doctor, date);
-//            try (ObjectOutputStream obj = new ObjectOutputStream(new FileOutputStream("appointment.ser"))) {
-//                obj.writeObject(appointment);
-//                System.out.println("Object serialized!");
-            appointments.add(appointment);
-            
-            saveAppointmentsSafely();
-            System.out.println("Appointment Booked Successfully.");
-          
-        } catch (InvalidAppointmentException e) {
-            System.out.println("Error:" + e.getMessage());
-        }
+		Appointment appointment = new Appointment(appointmentId, patient, doctor, date);
+//                try (ObjectOutputStream obj = new ObjectOutputStream(new FileOutputStream("appointment.ser"))) {
+//                    obj.writeObject(appointment);
+//                    System.out.println("Object serialized!");
+		appointments.add(appointment);
+		
+		saveAppointmentsSafely();
+		System.out.println("Appointment Booked Successfully.");
+      }
+      else
+      {
+		System.out.println("No doctor available with that specialization.");
+		return;
+      }
     }
 
     private static void displayAppointments() {
@@ -295,7 +309,9 @@ public class HospitaltSystem {
 
     private static void saveAppointmentsSafely() {
         try {
-            FileUtils.saveList(APPOINTMENTS_FILE, appointments);
+            
+        	FileUtils.saveList(APPOINTMENTS_FILE, appointments);
+        
         } catch (IOException e) {
             System.err.println("Failed to save appointments: " + e.getMessage());
         }

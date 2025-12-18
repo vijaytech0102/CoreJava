@@ -66,6 +66,7 @@ public class StreamApiQuestions {
 
         System.out.println("================= STREAM API SOLUTIONS =================");
 
+        
         // Q1: Given a list of integers, return a list of unique even numbers sorted.
         List<Integer> nums = Arrays.asList(10, 2, 4, 2, 10, 8, 3);
         System.out.println("1. Unique even numbers sorted: " + q1(nums));

@@ -1,7 +1,9 @@
-package collections;
+ package collections;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -124,6 +126,15 @@ public class HashMapExample {
 		   entry.setValue(34);
 		System.out.println("Key: " + entry.getKey() + ", Value: " + entry.getValue());
 		}
+		
+		List<Integer> numberss=Arrays.asList(1,2,3,4,2,3,4);
+		
+		HashMap<Integer, Integer> fr= new HashMap<>();
+		for(Integer s: numberss)
+		{
+			fr.put(s,fr.getOrDefault(s,0)+1);
+		}
+		System.out.print(fr);
 		
 		// Iterator
 		
